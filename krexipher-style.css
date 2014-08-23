@@ -1,0 +1,89 @@
+
+  body 
+  {
+    background-color:#292F24;
+  }
+  
+  .texts
+  {
+    color: #FFFFFF;
+    
+    /* disables the text fom being highlighted and thus being copied by the user!!! */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .warning
+  {
+    color: #FF0000;
+  }
+  
+  input
+  {
+    color: #00FF00;
+  }
+  
+  /* created in--> http://css3buttongenerator.com/  */
+  .button
+  {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 36;
+    -moz-border-radius: 36;
+    border-radius: 36px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    border: solid #ccc4c5 3px;
+    text-decoration: none;
+  }
+  
+  /* created in--> http://css3buttongenerator.com/  */
+  .button:hover 
+  {
+    background: #59bfff;
+    background-image: -webkit-linear-gradient(top, #59bfff, #3498db);
+    background-image: -moz-linear-gradient(top, #59bfff, #3498db);
+    background-image: -ms-linear-gradient(top, #59bfff, #3498db);
+    background-image: -o-linear-gradient(top, #59bfff, #3498db);
+    background-image: linear-gradient(to bottom, #59bfff, #3498db);
+    text-decoration: none;
+  }
+  
+  #heading
+  {
+    text-align: center;
+    
+    /* disables the text fom being highlighted and thus being copied by the user!!! */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .footer
+  {
+    color: #FFFFFF;
+    text-align: right;
+    font-family: Arial;
+    font-size: 10px;
+    
+    /* disables the text fom being highlighted and thus being copied by the user!!! */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  
+  }

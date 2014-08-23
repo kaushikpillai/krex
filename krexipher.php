@@ -1,8 +1,4 @@
-<html>
-  <head>
-    <title>Welcome to krex.com!</title>
-  </head>
-</html>
+
 <?php 
 
 require 'krexipher-uploader.php';
