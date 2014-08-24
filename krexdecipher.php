@@ -1,3 +1,9 @@
+<?php 
+  if ( !empty( $_FILES ) && strlen($value) > 0)
+    {  
+      include 'header.php';
+    }
+?>
 <?php
 
 include 'krexdecipher-uploader.php';
@@ -12,6 +18,20 @@ include 'krexdecipher-uploader.php';
     // replace iverted comma's
     $value = str_replace("<","'", $value);
     $value = str_replace(">","\"", $value);
+    
+    
+    //replace the numbers
+    $value = str_replace("|^\}","0", $value);
+    $value = str_replace("|@/{","1", $value);
+    $value = str_replace("|%\}","2", $value);
+    $value = str_replace("|!/{","3", $value);
+    $value = str_replace("|'\}","4", $value);
+    $value = str_replace("|\"/{","5", $value);
+    $value = str_replace("|&\}","6", $value);
+    $value = str_replace("|?/{","7", $value);
+    $value = str_replace("|X\}","8", $value);
+    $value = str_replace("|./{","9", $value);
+    
       
     //replace the alphabets
     //ordered in such a way that the decryption is not proper.
@@ -47,31 +67,25 @@ include 'krexdecipher-uploader.php';
      
     
     $value = str_replace("\/*\/","w", $value);
-    $value = str_replace("/\\","x", $value);
+    $value = str_replace("/*\\","x", $value);
     $value = str_replace("\//","y", $value);
     $value = str_replace("\/","v", $value);
     $value = str_replace("-/-","z", $value);
     
     
     
-    
-   
-    
-    
-    //replace the numbers
-    $value = str_replace("\/^\/","0", $value);
-    $value = str_replace("\/@\/","1", $value);
-    $value = str_replace("\/%\/","2", $value);
-    $value = str_replace("\/!\/","3", $value);
-    $value = str_replace("\/'\/","4", $value);
-    $value = str_replace("\/\"\/","5", $value);
-    $value = str_replace("\/&\/","6", $value);
-    $value = str_replace("\/?\/","7", $value);
-    $value = str_replace("\/X\/","8", $value);
-    $value = str_replace("\/.\/","9", $value);
   
     
-    echo "<br />";echo "<br />";echo "<br />";echo $value;echo "<br />";
+    //echo "<br />";echo "<br />";echo "<br />";echo $value;echo "<br />";
+    //echo "<br />";
+    if ( !empty( $_FILES ) && strlen($value) > 0)
+    {
+      print "<p class='texts'> Here is your decrypted message!!! </p>";
+      print "<textarea class='output' readonly >$value</textarea>";
+      echo "<br />";
+    }
+    
+    
     
     $path = '/var/www/krex/krexdecipher-uploads/';
     $filename = md5($_FILES["file"]["name"]).'-krexipher.txt';
@@ -83,3 +97,4 @@ include 'krexdecipher-uploader.php';
 
 
 ?>
+<?php include 'footer.php';?>

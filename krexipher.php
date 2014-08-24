@@ -1,4 +1,9 @@
-
+<?php 
+  if ( !empty( $_FILES ) && strlen($value) > 0)
+    {  
+      include 'header.php';
+    }
+?>
 <?php 
 
 require 'krexipher-uploader.php';
@@ -41,7 +46,7 @@ include 'download-prompter.php';
     // it will remove all <!--[if ...]>.... --> comments
     //preg_replace('/<!--\[if[^\]]*]>.*?-->/i', '', $value);
     
-    echo "<br />";echo $value;echo "<br />";
+    //echo "<br />";echo $value;echo "<br />";
     
     //replace the letters according to the cipher
     $value = preg_replace("/\s/","$", $value); // replace space
@@ -72,23 +77,33 @@ include 'download-prompter.php';
     $value = preg_replace("/u/","|__|", $value);
     $value = preg_replace("/v/","\/", $value);
     $value = preg_replace("/w/","\/*\/", $value);
-    $value = preg_replace("/x/","/\\", $value);
+    $value = preg_replace("/x/","/*\\", $value);
     $value = preg_replace("/y/","\//", $value);
     $value = preg_replace("/z/","-/-", $value);
     
     //replace the numbers
-    $value = preg_replace("/0/","\/^\/", $value);
-    $value = preg_replace("/1/","\/@\/", $value);
-    $value = preg_replace("/2/","\/%\/", $value);
-    $value = preg_replace("/3/","\/!\/", $value);
-    $value = preg_replace("/4/","\/'\/", $value);
-    $value = preg_replace("/5/","\/\"\/", $value);
-    $value = preg_replace("/6/","\/&\/", $value);
-    $value = preg_replace("/7/","\/?\/", $value);
-    $value = preg_replace("/8/","\/X\/", $value);
-    $value = preg_replace("/9/","\/.\/", $value);
+    $value = preg_replace("/0/","|^\}", $value);
+    $value = preg_replace("/1/","|@/{", $value);
+    $value = preg_replace("/2/","|%\}", $value);
+    $value = preg_replace("/3/","|!/{", $value);
+    $value = preg_replace("/4/","|'\}", $value);
+    $value = preg_replace("/5/","|\"/{", $value);
+    $value = preg_replace("/6/","|&\}", $value);
+    $value = preg_replace("/7/","|?/{", $value);
+    $value = preg_replace("/8/","|X\}", $value);
+    $value = preg_replace("/9/","|./{", $value);
     
-    echo "<br />";echo $value;echo "<br />";
+    //echo "<br />";echo $value;echo "<br />";
+    //echo "<br />";
+    if ( !empty( $_FILES ) && strlen($value) > 0 )
+    {
+      print "<p class='texts'> Here is your encrypted message!!! </p>";
+      print "<textarea class='output' readonly >$value</textarea>";
+      echo "<br />";
+    }
+    
+    
+    
     
     $path = '/var/www/krex/krexipher-uploads/';
     $filename = md5($_FILES["file"]["name"]).'-krexipher.txt';
@@ -161,3 +176,4 @@ include 'download-prompter.php';
   
   
 ?>
+<?php include 'footer.php';?>

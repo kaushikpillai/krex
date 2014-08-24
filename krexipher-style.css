@@ -17,9 +17,28 @@
     user-select: none;
   }
   
+  div.top-panel
+  {
+    top: 10;
+  }
+  
+  button.opbut
+  {
+    position:absolute;
+   
+    right:20;
+  }
+  
   .warning
   {
     color: #FF0000;
+    /* disables the text fom being highlighted and thus being copied by the user!!! */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
   }
   
   input
@@ -85,5 +104,37 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-  
+    
+  	/* http://www.cssreset.com/how-to-keep-footer-at-bottom-of-page-with-css/ --> putting the footer at the bottom right of the page */
+  	position:absolute;
+    bottom:0;
+    right:0;
   }
+  
+ 
+ 
+  /*
+    http://www.htmlgoodies.com/beyond/javascript/article.php/3458851
+    http://www.steamdev.com/zclip/
+    http://zeroclipboard.org/
+    
+  */ 
+  textarea.output
+  {
+    width: 950px;
+	  height: 350px;
+	  border: 3px solid #cccccc;
+	  padding: 5px;
+	  background-color: #800000;
+	  color: #FFFFFF;
+	  font-family: Tahoma, sans-serif;
+	  background-position: bottom right;
+	  background-repeat: no-repeat;
+  }
+  
+  /* change the highlight color of the textarea!!*/
+  textarea::selection { background:#F0F0F0; color:#000000; }
+  textarea::-moz-selection { background:#F0F0F0; color:#000000; }
+  textarea::-webkit-selection { background:#F0F0F0; color:#000000; }
+  
+  

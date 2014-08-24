@@ -32,10 +32,10 @@ print_r($_FILES);
       } 
       else 
       {
-        echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-        echo "Type: " . $_FILES["file"]["type"] . "<br>";
-        echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-        echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+        //echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+        //echo "Type: " . $_FILES["file"]["type"] . "<br>";
+        //echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+        //echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
         if (file_exists("/var/www/krex/krexdecipher-uploads/" . $_FILES["file"]["name"])) 
         {
           unlink("/var/www/krex/krexdecipher-uploads/" . $_FILES["file"]["name"]);
@@ -44,7 +44,7 @@ print_r($_FILES);
         //else 
         //{
           move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/krex/krexdecipher-uploads/" . $_FILES["file"]["name"]);
-          echo "Stored in: " . "/var/www/krex/krexdecipher-uploads/" . $_FILES["file"]["name"];
+          //echo "Stored in: " . "/var/www/krex/krexdecipher-uploads/" . $_FILES["file"]["name"];
         //}
       }
     } 
