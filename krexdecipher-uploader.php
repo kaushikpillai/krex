@@ -5,13 +5,14 @@
   </head>
 <body>
 
-
+<div class="upload-form" id="krexdecipher-uploader">
 <form action="krexdecipher.php" method="post" enctype="multipart/form-data">
 <label class="texts" for="file">Upload the text file to be decoded:</label>
 <input type="file" name="file" id="file"><br>
 <h5 class="warning"> Only '.txt' files allowed!!</h5>
 <input class="button" type="submit" name="submit" value="Decode">
 </form>
+</div>
 </body>
 <!--<?php
 print_r($_FILES);

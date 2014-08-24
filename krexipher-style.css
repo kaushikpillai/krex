@@ -26,7 +26,7 @@
   {
     position:absolute;
    
-    right:20;
+    left:20;
   }
   
   .warning
@@ -137,4 +137,45 @@
   textarea::-moz-selection { background:#F0F0F0; color:#000000; }
   textarea::-webkit-selection { background:#F0F0F0; color:#000000; }
   
+  
+  .opbut
+  {
+    background-color: rgb(94, 94, 94); 
+    border-radius: 10px; 
+    border: 2px solid rgb(237, 237, 237); 
+    display: inline-block; 
+    cursor: pointer; 
+    color: rgb(255, 255, 255); 
+    font-family: arial; 
+    font-size: 17px; 
+    padding: 4px 10px; 
+    text-decoration: none; 
+    text-shadow: 0px 1px 0px rgb(43, 102, 94);
+  }
+  
+  .opbut:hover
+  {
+    border: 2px solid #FF0000;
+    color: #FF0000;
+  }
+  
+  .logo
+  {
+    position:absolute;
+    top:140;
+    right:20;
+    
+  }
+  
+  #krexlogo
+  {
+    height: 200;
+    width: 300;
+  }
+  
+  #krexlogo:hover
+  {
+    height: 400;
+    width: 600;
+  }
   

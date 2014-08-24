@@ -1,9 +1,11 @@
 <?php 
-  if ( !empty( $_FILES ) && strlen($value) > 0)
+  if ( $_SERVER['PHP_SELF'] == '/krexdecipher.php')
     {  
       include 'header.php';
+      print('<br />');
     }
 ?>
+<br /><br />
 <?php
 
 include 'krexdecipher-uploader.php';
@@ -97,4 +99,9 @@ include 'krexdecipher-uploader.php';
 
 
 ?>
-<?php include 'footer.php';?>
+<?php 
+  if ( $_SERVER['PHP_SELF'] == '/krexdecipher.php')
+  {  
+    include 'footer.php';
+  }
+?>

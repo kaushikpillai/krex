@@ -1,9 +1,11 @@
 <?php 
-  if ( !empty( $_FILES ) && strlen($value) > 0)
+  if ( $_SERVER['PHP_SELF'] == '/krexipher.php')
     {  
       include 'header.php';
+      print('<br /><br /><br />');
     }
 ?>
+
 <?php 
 
 require 'krexipher-uploader.php';
@@ -176,4 +178,10 @@ include 'download-prompter.php';
   
   
 ?>
-<?php include 'footer.php';?>
+<?php 
+  if ( $_SERVER['PHP_SELF'] == '/krexipher.php')
+    {  
+      include 'footer.php';
+    }      
+?>
+      

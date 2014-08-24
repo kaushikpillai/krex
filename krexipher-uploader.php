@@ -4,13 +4,14 @@
     <link rel="stylesheet" type="text/css" href="krexipher-style.css">
   </head>
 <body>
-
+<div class="upload-form" id="krexipher-uploader">
 <form action="krexipher.php" method="post" enctype="multipart/form-data">
 <label class="texts" for="file">Upload the text file to be encoded:</label>
 <input type="file" name="file" id="file"><br>
 <h5 class="warning"> Only '.txt' files allowed!!</h5>
 <input class="button" type="submit" name="submit" value="Encode">
 </form>
+</div>
 </body>
 
 <?php
