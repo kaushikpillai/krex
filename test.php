@@ -1,32 +1,34 @@
-<?php
-$x=5; // global scope
-
-function myTest() {
-  $y=10; // local scope
-//  global $x;
-  echo "<p>Test variables inside the function:</p>";
-  print ("Variable x is:" .$GLOBALS['x']);
-  echo "<br>";
-  echo "Variable y is: $y";
-}
-
-myTest();
-
-echo "<p>Test variables outside the function:</p>";
-echo "Variable x is: $x";
-echo "<br>";
-echo "Variable y is: $y";
-?> 
-
+ <!DOCTYPE html>
+<html>
+<body>
 
 <?php
-/*$x=5;
-$y=10;
-
-function myTest() {
-  $GLOBALS['y']=$GLOBALS['x']+$GLOBALS['y'];
+class Car
+{
+    var $color;
+    function Car($color="green") {
+      $this->color = $color;
+    }
+    function what_color() {
+      return $this->color;
+    }
 }
 
-myTest();
-echo $y; // outputs 15*/
+function print_vars($obj) {
+   foreach (get_object_vars($obj) as $prop => $val) {
+     echo "\t $prop = $val\n";
+   }
+}
+
+// instantiate one object
+$herbie = new Car("white");
+
+// show herbie properties
+echo "\n herbie: Properties\n";
+print_vars($herbie);
+
 ?> 
+
+</body>
+</html>
+
