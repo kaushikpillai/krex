@@ -4,11 +4,17 @@
 
 // This is the Seige of Mesada problem. Given N people, starting from the 'i'th man, if the Mesada solution is implemented, which person is the last man standing. If the starting person's position is not mentioned, we take the default position value as 1.
 
-
-  $sword = 1;
-  $strike = 2;
-  $man_with_the_sword = 1;
-  seige_of_masada(100,1);
+  // global variables
+  $sword = 1;// the index of the person with the sword
+  $man_with_the_sword = 1;// position of the man currently with the sword
+  
+  //Input Variables
+  $strike = 3;// the difference in position between the men passing the swords (or) is -1 of the no of persons to be kiiled by each person in a single strike
+  
+  //  calling the main function.
+  //  first parameter is the num of men
+  //  and second parameter is the starting position of the man who is going to start the killing
+  seige_of_masada(10,8);
 
 
   function seige_of_masada($n=2, $start=1)
@@ -41,7 +47,7 @@
       $output1 = array_slice($arr_men, $key); 
       $output2 = array_slice($arr_men, 0,$key); 
       $arr_men = array_merge($output1,$output2);
-      var_dump($arr_men);
+      //var_dump($arr_men);
     }
     
     
@@ -54,8 +60,8 @@
       do
         {
           $arr_men = initiate_killing_round($arr_men);
-          var_dump($arr_men);
-        } while(count($arr_men)>2);
+          //var_dump($arr_men);
+        } while(count($arr_men)>$GLOBALS['strike']);
         
         $last_man_standing = $GLOBALS['$man_with_the_sword'];
         print("the last man standing is $last_man_standing");
@@ -73,9 +79,12 @@
     {
       if($count>0 && $i < $array_count)
       {
-        unset($arr_men[$i-1]);
+        for($j=1; $j<$GLOBALS['strike']; $j++)
+        {
+          unset($arr_men[$i-$j]);
+        }
         $GLOBALS['sword'] = $i;
-        //var_dump($arr_men);
+        var_dump($arr_men);
       }
       
       $count++;
