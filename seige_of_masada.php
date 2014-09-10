@@ -5,76 +5,66 @@
 // This is the Seige of Mesada problem. Given N people, starting from the 'i'th man, if the Mesada solution is implemented, which person is the last man standing. If the starting person's position is not mentioned, we take the default position value as 1.
 
 
-$sword = 1;
-$strike = 2;
-$man_with_the_sword = 1;
-seige_of_masada(5);
+  $sword = 1;
+  $strike = 2;
+  $man_with_the_sword = 1;
+  seige_of_masada(100,1);
 
 
-function seige_of_masada($n=2, $start=1)
-{
-  for($i=1; $i<=$n; $i++)
+  function seige_of_masada($n=2, $start=1)
   {
-    $arr_men[] = $i;
-  }
-  //echo $GLOBALS['strike'];
-  //print_r($arr_men);
-  var_dump($arr_men);
-  
-  /*$arr=array('Monday' => 'mon',
-  'Tuesday' => 'tue',
-  'Wednesday' => 'wed',
-  'Thursday' => 'thur',
-  'Friday' => 'fri',
-  'Saturday' => 'sat',
-  'Sunday' => 'sun');
-  //say your start is wednesday
-  $key = array_search("Wednesday",array_keys($arr));
-  $output1 = array_slice($arr, $key); 
-  $output2 = array_slice($arr, 0,$key); 
-  $new=array_merge($output1,$output2);
-  print_r($new);*/
-  
-  
-  do
-  {
-    $arr_men = initiate_killing_round($arr_men);
-    //echo 'kau';echo '<br>';
-    //echo $GLOBALS['$man_with_the_sword']; echo '<br>';
-    //echo count($arr_men);
+    // create an array, where position of the men are the values in the array.
+    for($i=1; $i<=$n; $i++)
+    {
+      $arr_men[] = $i;
+    }
     var_dump($arr_men);
-  }while(count($arr_men)>2);
-  
-  //echo $GLOBALS['$man_with_the_sword']; echo '<br>';
-  $last_man_standing = $GLOBALS['$man_with_the_sword'];
-  
-  print("the last man standing is $last_man_standing");
-  
-  /*
-  $arr_men = initiate_killing_round($arr_men);
-  //echo $GLOBALS['$man_with_the_sword'];
-  echo count($arr_men);
-  var_dump($arr_men);
-  
-  $arr_men = initiate_killing_round($arr_men);
-  //echo $GLOBALS['$man_with_the_sword'];
-  echo count($arr_men);
-  var_dump($arr_men);
- 
-  $arr_men = initiate_killing_round($arr_men);
-  //echo $GLOBALS['$man_with_the_sword'];
-  echo count($arr_men);
-  var_dump($arr_men);
-  
-  $arr_men = initiate_killing_round($arr_men);
-  //echo $GLOBALS['$man_with_the_sword'];
-  echo count($arr_men);
-  var_dump($arr_men);*/
-  
-  
- 
-}
+    
+    /*$arr=array('Monday' => 'mon',
+    'Tuesday' => 'tue',
+    'Wednesday' => 'wed',
+    'Thursday' => 'thur',
+    'Friday' => 'fri',
+    'Saturday' => 'sat',
+    'Sunday' => 'sun');
+    //say your start is wednesday
+    $key = array_search("Wednesday",array_keys($arr));
+    $output1 = array_slice($arr, $key); 
+    $output2 = array_slice($arr, 0,$key); 
+    $new=array_merge($output1,$output2);
+    print_r($new);*/
+    
+    // rearranging the array so that the man starting with the sword is in the starting position
+    if($start > 1)
+    {
+      $key = array_search($start-1,array_keys($arr_men));
+      $output1 = array_slice($arr_men, $key); 
+      $output2 = array_slice($arr_men, 0,$key); 
+      $arr_men = array_merge($output1,$output2);
+      var_dump($arr_men);
+    }
+    
+    
+    if($n==2 || $n==1)
+    {
+      print("the last man standing is $arr_men[0]");
+    }
+    else
+    {
+      do
+        {
+          $arr_men = initiate_killing_round($arr_men);
+          var_dump($arr_men);
+        } while(count($arr_men)>2);
+        
+        $last_man_standing = $GLOBALS['$man_with_the_sword'];
+        print("the last man standing is $last_man_standing");
+    } 
+  }
 
+  //
+  // function that does the killing of the men till the end of line is reached and there in no next man to kill
+  //
   function initiate_killing_round($arr_men)
   {
     $count = 0;
@@ -84,22 +74,18 @@ function seige_of_masada($n=2, $start=1)
       if($count>0 && $i < $array_count)
       {
         unset($arr_men[$i-1]);
-        //echo $arr_men[$i];
-        //echo $i;
         $GLOBALS['sword'] = $i;
         //var_dump($arr_men);
       }
       
       $count++;
     }
-    //echo $GLOBALS['sword'];
     $temp = $GLOBALS['sword'];
     $GLOBALS['$man_with_the_sword'] = $arr_men[$temp];
     $key = array_search($GLOBALS['sword'],array_keys($arr_men));
     $output1 = array_slice($arr_men, $key); 
     $output2 = array_slice($arr_men, 0,$key); 
-    $new=array_merge($output1,$output2);
-    //print_r($new);
+    $new = array_merge($output1,$output2);
     //var_dump($new);
     return $new;
   }
